@@ -1,0 +1,71 @@
+3/12/18:
+	1. Print private key in one line string format using (Use in Xeroizer API)
+		- sed 's/$/\\n/' privatekey.pem | tr -d '\n'
+	2. Components in ReactJS
+	3. Learning Rspec for routing
+
+4/12/18:
+	1. Stub external services in tests (Test out external HTTP request)
+		- https://robots.thoughtbot.com/how-to-stub-external-services-in-tests
+	2. let! => The difference between let, and let! is that let! is called in an implicit before block. So the result is evaluated and cached before the it block.
+
+5/12/18:
+	1. Stuck because inventory requires supplier_id from product’s association (Solution: To create a new product in Spec -> then add it)
+		- let(:subject) { create(:inventory, product: product)}
+	2. Done up lesson plans for the interns (Command line, git, installation, ruby, and rails, database)
+
+6/12/18:
+	1. Relay lesson plans to intern
+	2. Rspec for most of the model and all of the routing
+	3. Should learn how Factory Girl works (Now renamed as factory_bot)
+		- https://github.com/thoughtbot/factory_bot_rails
+
+7/12/18:
+	1. Finishing up the rspec tests
+	2. Relay lessons on how to build a simple app on rails
+	3. Understood the difference between has_many: through(which requires a third party relation in a many-to-many relationship) and has_many_and_belongs_to_many(plainly a join table with no relations between the 2 many-to-many table)
+	4. Downloaded Sourcetree to track branch, history of git commits
+
+8/12/18:
+	1. Understood props, setting default props (ReactJS)
+	2. Intro on what is Cloud computing (IaaS, PaaS, SaaS)
+
+9/12/18:
+	1. Understanding how to use form_for in rails
+
+10/12/18:
+	1. Partial form (Can call out by doing render ’name’ -> name of partial form! Convention: _form.html.slim
+	2. Learn about Administrate gem (to create powerful and flexible dashboard), DropzoneJS (Drag and drop files) and FriendlyID gem (make URL ID a name, for security sake)
+		- https://github.com/thoughtbot/administrate
+		- https://www.dropzonejs.com/
+		- https://github.com/norman/friendly_id
+	3. Had troubles showing a text box when client’s xero_email is nil
+
+11/12/18:
+	1. Having difficulty in using jQuery in selectize. (Need to obtain the value of the input box) => Solution: Rails will run every Javascript files for each request, must do ‘require /<file_name>’ in application.js  to link JS scripts in rails.
+	2. How to link the drop zone to the file ? Through the id? => Solution: before_action :set_s3_direct_post, only: [:show] on the top of the controller with pre-assigned s3 bucket file upload key
+	3. Devise would not show sign_up or sign_in page when the user is already logged in
+
+12/12/18:
+	1. Get the file url from direct s3
+	2. Set actionmailer in symphony
+		* CONTROLLER: to send email
+		* NEW TASK TYPE: send_email
+	3. Qn: How to change the view when jQuery is activated?
+	4. Qn2: File uploaded have no workflow ID (Workflow already created before document is uploaded, hence no workflowID) => Solution: new routes POST @document.workflow_id = @workflow.id => if @document.save will check if the document is save, as well as executing the SAVE function in the instance variable
+	5. Qn3: Document created but not stored in index (Complicated solution, see multiple uploads js file)
+	6. Complication with action Mailer: SOLUTION => file_url have to change by requiring open_uri with this uri = URI("http:"+ wf.file_url.to_s), for the file_url from amazon s3 to change to a legit URL.
+		- :controller => "workflows", :action => "send_email_to_xero", role: ‘button'
+
+13/12/18:
+	1. Fixed the routing problem to send the email
+	2. Are there no ways to pass javascript into html.erb? SOLUTION => Make display hidden then appear when condition is met
+	3. Nested form for polymorphic association
+	4. Stuck in updating data of client from the nested form and with polymorphic association with workflow
+	5. 'unless' keyword in ruby
+
+14/12/18:
+	1. Fast testing domain configuration using puma dev gem!
+		- https://github.com/puma/puma-dev
+	2. before_create command learnt (Checkout model callbacks method)
+	3. Form filler extension from google chrome -> to fill dummy datas into form!
